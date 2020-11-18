@@ -1,8 +1,8 @@
 # jsp-jstl-sample
 
-A Spring boot Application to perform Basic CRUD operations on users using JPA, JSP and JSTL
+A Spring boot Application to perform Basic CRUD operations on users using JPA, JSP and JSTL. An Email utility service to send mail to the user on creation.
 
-Change Database details in application.properties
+Update details in application.properties
 
 Create table in MySQL database:
 
