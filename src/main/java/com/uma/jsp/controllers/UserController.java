@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.uma.jsp.entities.User;
 import com.uma.jsp.services.IUserService;
+import com.uma.jsp.utils.IEmailUtil;
 
 
 @Controller
@@ -18,6 +19,9 @@ public class UserController {
 	
 	@Autowired
 	IUserService userService;
+	
+	@Autowired
+	IEmailUtil emailUtil;
 
 	@RequestMapping("/showCreate")
 	public String showCreate() {
@@ -29,6 +33,7 @@ public class UserController {
 		User userSaved = userService.saveUser(user);
 		String msg = "User saved with id: " + userSaved.getId();
 		modelMap.addAttribute("msg", msg);
+		emailUtil.sendEmail(user.getEmail(), "Uma's application test mail", "Just a sample mail for testing");
 		return "createUser";
 	}
 
